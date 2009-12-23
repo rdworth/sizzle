@@ -1015,6 +1015,10 @@ var isXML = function(elem){
 	return documentElement ? documentElement.nodeName !== "HTML" : false;
 };
 
+var isForeignElement = function(elem){
+	return elem.namespaceURI ? elem.namespaceURI !== "http://www.w3.org/1999/xhtml" : isXML( elem );
+};
+
 var posProcess = function(selector, context){
 	var tmpSet = [], later = "", match,
 		root = context.nodeType ? [context] : context;
